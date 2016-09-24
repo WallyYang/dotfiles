@@ -26,7 +26,7 @@ values."
      auto-completion
      c-c++
      ;; better-defaults
-     chinese
+     ;; chinese
      emacs-lisp
      ;; git
      html
@@ -105,9 +105,9 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
-                         twilight-anti-bright
                          spacemacs-dark
                          monokai
+                         twilight-anti-bright
                          spacemacs-light
                          solarized-light
                          solarized-dark
