@@ -1,3 +1,8 @@
  .adobe/
- .bash_history/
- .bash_logout/
+ .bash_history
+ .bash_logout
+ .cache/
+ .config/
+ Desktop/
+ Documents/
+ 
