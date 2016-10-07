@@ -76,7 +76,7 @@ values."
    dotspacemacs-elpa-timeout 5
    ;; If non nil then spacemacs will check for updates at startup
    ;; when the current branch is not `develop'. (default t)
-   dotspacemacs-check-for-update t
+   dotspacemacs-check-for-update nil
    ;; One of `vim', `emacs' or `hybrid'. Evil is always enabled but if the
    ;; variable is `emacs' then the `holy-mode' is enabled at startup. `hybrid'
    ;; uses emacs key bindings for vim's insert mode, but otherwise leaves evil
@@ -136,7 +136,7 @@ values."
    ;; and TAB or <C-m> and RET.
    ;; In the terminal, these pairs are generally indistinguishable, so this only
    ;; works in the GUI. (default nil)
-   dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-distinguish-gui-tab t
    ;; (Not implemented) dotspacemacs-distinguish-gui-ret nil
    ;; The command key used for Evil commands (ex-commands) and
    ;; Emacs commands (M-x).
@@ -157,9 +157,9 @@ values."
    ;; auto-save the file in-place, `cache' to auto-save the file to another
    ;; file stored in the cache directory and `nil' to disable auto-saving.
    ;; (default 'cache)
-   dotspacemacs-auto-save-file-location 'cache
+   dotspacemacs-auto-save-file-location 'original
    ;; Maximum number of rollback slots to keep in the cache. (default 5)
-   dotspacemacs-max-rollback-slots 5
+   dotspacemacs-max-rollback-slots 99
    ;; If non nil then `ido' replaces `helm' for some commands. For now only
    ;; `find-files' (SPC f f), `find-spacemacs-file' (SPC f e s), and
    ;; `find-contrib-file' (SPC f e c) are replaced. (default nil)
@@ -174,7 +174,7 @@ values."
    dotspacemacs-helm-position 'bottom
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
-   dotspacemacs-enable-paste-micro-state nil
+   dotspacemacs-enable-paste-micro-state t
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
    dotspacemacs-which-key-delay 0.4
@@ -214,7 +214,7 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
@@ -270,7 +270,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (web-mode web-beautify toc-org tagedit stickyfunc-enhance srefactor slim-mode scss-mode sass-mode pyvenv pytest pyenv-mode py-yapf pip-requirements org-repo-todo org-present org-pomodoro alert log4e gntp org-plus-contrib org-bullets less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc jade-mode hy-mode htmlize helm-pydoc helm-css-scss helm-company helm-c-yasnippet haml-mode gnuplot flycheck-ycmd flycheck-pos-tip flycheck emmet-mode eclim disaster cython-mode company-ycmd ycmd request-deferred request deferred company-web web-completion-data company-tern dash-functional tern company-statistics company-quickhelp pos-tip company-c-headers company-anaconda company coffee-mode cmake-mode clang-format auto-yasnippet yasnippet anaconda-mode pythonic f ac-ispell auto-complete ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline s powerline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox hydra spinner page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-args evil-anzu anzu eval-sexp-fu highlight elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build use-package which-key bind-key bind-map evil spacemacs-theme))))
+    (swiper ivy web-mode web-beautify toc-org tagedit stickyfunc-enhance srefactor slim-mode scss-mode sass-mode pyvenv pytest pyenv-mode py-yapf pip-requirements org-repo-todo org-present org-pomodoro alert log4e gntp org-plus-contrib org-bullets less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc jade-mode hy-mode htmlize helm-pydoc helm-css-scss helm-company helm-c-yasnippet haml-mode gnuplot flycheck-ycmd flycheck-pos-tip flycheck emmet-mode eclim disaster cython-mode company-ycmd ycmd request-deferred request deferred company-web web-completion-data company-tern dash-functional tern company-statistics company-quickhelp pos-tip company-c-headers company-anaconda company coffee-mode cmake-mode clang-format auto-yasnippet yasnippet anaconda-mode pythonic f ac-ispell auto-complete ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline s powerline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox hydra spinner page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-args evil-anzu anzu eval-sexp-fu highlight elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build use-package which-key bind-key bind-map evil spacemacs-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
