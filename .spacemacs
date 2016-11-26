@@ -33,10 +33,10 @@ values."
      gtags
      ;; git
      html
-     java
-     javascript
-     (javascript :variables
-                 tern-command '("node" "~/.npm-global/bin/tern"))
+     ;; java
+     ;;javascript
+     ;;(javascript :variables
+     ;;            tern-command '("node" "~/.npm-global/bin/tern"))
      ;; markdown
      org
      python
