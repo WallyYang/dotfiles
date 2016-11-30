@@ -1,0 +1,6 @@
+# name: for-range
+# key: range
+# --
+for ($1 : $2) {
+    $0
+}

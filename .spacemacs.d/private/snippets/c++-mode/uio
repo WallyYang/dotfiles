@@ -1,0 +1,6 @@
+# name: use stdio
+# key: uio
+# --
+using std::cin;
+using std::cout;
+using std::endl;
