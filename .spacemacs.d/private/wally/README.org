@@ -1,0 +1,31 @@
+#+TITLE: wally layer
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../css/readtheorg.css" />
+
+#+CAPTION: logo
+
+# The maximum height of the logo should be 200 pixels.
+[[img/wally.png]]
+
+* Table of Contents                                        :TOC_4_org:noexport:
+ - [[Decsription][Description]]
+ - [[Install][Install]]
+ - [[Key bindings][Key bindings]]
+
+* Description
+This layer does wonderful thing:
+  - navigate emacs-lisp through C-h C-f/C-v/C-k
+
+* Install
+To use this contribution add it to your =~/.spacemacs=
+
+#+begin_src emacs-lisp
+  (setq-default dotspacemacs-configuration-layers '(wally))
+#+end_src
+
+* Key bindings
+
+| Key Binding | Description          |
+|-------------+----------------------|
+| "C-h C-f"   | find-function        |
+| "C-h C-v"   | find-variable        |
+| "C-h C-k"   | find-function-on-key |
