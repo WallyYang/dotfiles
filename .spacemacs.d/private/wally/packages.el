@@ -39,7 +39,8 @@
         counsel
         ivy
         popwin
-        swiper))
+        swiper
+        yasnippet))
 
 ;; (defconst wally-packages
 ;;   '(
@@ -74,7 +75,7 @@
 
 
 (defun wally/init-company ()
-  (global-company-mode 1)
+  ;; (global-company-mode 1)
   (setq-default company-minimum-prefix-length 1))
 
 (defun wally/init-ivy ()
@@ -90,6 +91,17 @@
 (defun wally/init-swiper ()
   (global-set-key "\C-s" 'swiper)
   )
+
+(defun wally/post-init-yasnippet ()
+    ;; (add-hook 'prog-mode
+              (setq yas-snippet-dirs
+                    '("~/.spacemacs.d/private/snippets"))
+              ;; (setq yas-snippet-dirs (append yas-snippet-dirs
+              ;;                         '("~/.spacemacs.d/private/snippets")
+              ;;                         ))
+
+              ;; )
+    )
 
 ;; Configure the packages
 (when (configuration-layer/layer-usedp 'auto-completion)
