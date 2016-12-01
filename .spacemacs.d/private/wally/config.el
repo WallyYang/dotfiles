@@ -1,6 +1,7 @@
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
+(evil-leader/set-key "j i" 'imenu)
 
 (spacemacs|defvar-company-backends python-mode)
 

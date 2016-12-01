@@ -71,7 +71,7 @@
 ;;         `./local/PACKAGE/PACKAGE.el'
 
 ;;       - A list beginning with the symbol `recipe' is a melpa
-  ;;         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
+;;         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
 
 (defun wally/init-company ()
@@ -93,15 +93,13 @@
   )
 
 (defun wally/post-init-yasnippet ()
-    ;; (add-hook 'prog-mode
-              (setq yas-snippet-dirs
-                    '("~/.spacemacs.d/private/snippets"))
-              ;; (setq yas-snippet-dirs (append yas-snippet-dirs
-              ;;                         '("~/.spacemacs.d/private/snippets")
-              ;;                         ))
+  (setq yas-snippet-dirs
+        '("~/.spacemacs.d/private/snippets"))
+  ;; (setq yas-snippet-dirs (append yas-snippet-dirs
+  ;;                         '("~/.spacemacs.d/private/snippets")
+  ;;                         ))
 
-              ;; )
-    )
+  )
 
 ;; Configure the packages
 (when (configuration-layer/layer-usedp 'auto-completion)
