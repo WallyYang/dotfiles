@@ -37,6 +37,7 @@
         company
         company-anaconda
         counsel
+        fill-column-indicator
         ivy
         popwin
         swiper
@@ -77,6 +78,12 @@
 (defun wally/init-company ()
   ;; (global-company-mode 1)
   (setq-default company-minimum-prefix-length 1))
+
+(defun wally/init-fill-column-indicator ()
+  (require 'fill-column-indicator)
+  (setq fci-rule-column 80)
+  (add-hook 'prog-mode-hook 'fci-mode)
+  )
 
 (defun wally/init-ivy ()
   (ivy-mode 1)
