@@ -1,5 +1,5 @@
 # name: for-range
-# key: range
+# key: each
 # --
 for ($1 : $2) {
     $0
