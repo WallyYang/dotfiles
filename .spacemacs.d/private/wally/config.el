@@ -9,7 +9,7 @@
 (add-hook 'c++-mode-hook
           (lambda ()
             (set (make-local-variable 'compile-command)
-                 (concat "g++ " buffer-file-name)
+                 (concat "clang++ -std=c++14 " buffer-file-name)
                  )
             (setq-default flycheck-disabled-checkers
                           (append flycheck-disabled-checkers
