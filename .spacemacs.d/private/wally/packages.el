@@ -75,11 +75,11 @@
 ;;         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
 
-(defun wally/init-company ()
+(defun wally/post-init-company ()
   ;; (global-company-mode 1)
   (setq-default company-minimum-prefix-length 1))
 
-(defun wally/init-fill-column-indicator ()
+(defun wally/post-init-fill-column-indicator ()
   (require 'fill-column-indicator)
   (setq fci-rule-column 80)
   (add-hook 'prog-mode-hook 'fci-mode)
