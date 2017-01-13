@@ -16,5 +16,4 @@ alias work='cd ~/workspace/'
 setxkbmap -option ctrl:swapcaps
 alias map="setxkbmap -option ctrl:swapcaps"
 
-fish
 export GTAGSLABEL=pygments
