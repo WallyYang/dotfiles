@@ -87,3 +87,5 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # thefuck config
 eval "$(thefuck --alias)"
+
+# deleting

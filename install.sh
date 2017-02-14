@@ -11,3 +11,7 @@ ln -s ~/dotfiles/.i3 ~/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 ln -s ~/dotfiles/.zshrc ~/
+
+# create temporary trash can
+sudo mkdir /delete
+sudo chmod 777 /delete
