@@ -37,7 +37,6 @@ values."
      haskell
      html
      ;; java
-     ;;javascript
      ;;(javascript :variables
      ;;            tern-command '("node" "~/.npm-global/bin/tern"))
      (markdown :variables
@@ -124,7 +123,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("default"
                                :size 13
                                :weight normal
                                :width normal
