@@ -3,8 +3,6 @@
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 (evil-leader/set-key "j i" 'imenu)
 
-(spacemacs|defvar-company-backends python-mode)
-
 ;; c++ mode improvement
 (add-hook 'c++-mode-hook
           (lambda ()

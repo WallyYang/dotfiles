@@ -28,18 +28,15 @@
 ;;   `wally/post-init-PACKAGE' to customize the package as it is loaded.
 
 ;;; Code:
-(global-set-key (kbd "C-s") 'swiper)
 (setq-default cursor-type 'bar)
+
 (delete-selection-mode 1)
 
 (setq wally-packages
       '(
         company
-        company-anaconda
-        counsel
         fill-column-indicator
         ivy
-        popwin
         swiper
         yasnippet))
 
@@ -53,13 +50,35 @@
 
 ;; 1. A symbol, which is interpreted as a package to be installed, or
 
-;; 2. A list of the form (PACKAGE KEYS...), where PACKAGE is the
+;; 2. A list of counsel;; If you want the keybinding to override all minor modes that may also bind
+;; the same key, use the `bind-key*' form:
+;;
+;;   (bind-key* "<C-return>" 'other-window)
+
+;; To bind multiple keys in a `bind-key*' way (to be sure that your bindings
+;; will not be overridden by other modes), you may use `bind-keys*' macro:
+;;
+;;    (bind-keys*
+;;     ("C-o" . other-window)
+;;     ("C-M-n" . forward-page)
+;;     ("C-M-p" . backward-page))the form (PACKAGE KEYS...), where PACKAGE is the
 ;;     name of the package to be installed or loaded, and KEYS are
 ;;     any number of keyword-value-pairs.
 
 ;;     The following keys are accepted:
 
-;;     - :excluded (t or nil): Prevent the package from being loaded
+;;     - :excluded (t or nil): Pr;; If you want the keybinding to override all minor modes that may also bind
+;; the same key, use the `bind-key*' form:
+;;
+;;   (bind-key* "<C-return>" 'other-window)
+
+;; To bind multiple keys in a `bind-key*' way (to be sure that your bindings
+;; will not be overridden by other modes), you may use `bind-keys*' macro:
+;;
+;;    (bind-keys*
+;;     ("C-o" . other-window)
+;;     ("C-M-n" . forward-page)
+;;     ("C-M-p" . backward-page))event the package from being loaded
 ;;       if value is non-nil
 
 ;;     - :location: Specify a custom installation location.
@@ -76,12 +95,11 @@
 
 
 (defun wally/post-init-company ()
-  ;; (global-company-mode 1)
   (setq-default company-minimum-prefix-length 1))
 
 (defun wally/post-init-fill-column-indicator ()
   (require 'fill-column-indicator)
-  (setq fci-rule-column 80)
+  (setq fci-rule-column 90)
   (add-hook 'prog-mode-hook 'fci-mode)
   )
 
@@ -89,11 +107,10 @@
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
   (global-set-key (kbd "<f6>") 'ivy-resume)
-  (global-set-key (kbd "C-c C-r") 'ivy-resume))
-
-(defun wally/counsel ()
-  (global-set-key (kbd "M-x") 'counsel-M-x)
-  (global-set-key (kbd "C-x C-f") 'counsel-find-file))
+  (global-set-key (kbd "C-c C-r") 'ivy-resume)
+  (bind-key* "C-x C-f" 'ido-find-file)
+  (bind-key* "C-x b" 'ivy-switch-buffer)
+  )
 
 (defun wally/init-swiper ()
   (global-set-key "\C-s" 'swiper)
@@ -101,25 +118,6 @@
 
 (defun wally/post-init-yasnippet ()
   (setq yas-snippet-dirs
-        '("~/.spacemacs.d/private/snippets"))
-  ;; (setq yas-snippet-dirs (append yas-snippet-dirs
-  ;;                         '("~/.spacemacs.d/private/snippets")
-  ;;                         ))
-
-  )
-
-;; Configure the packages
-(when (configuration-layer/layer-usedp 'auto-completion)
-
-  ;; Hook company to python-mode
-  (defun python/post-init-company ()
-    (spacemacs|add-company-hook python-mode))
-
-  ;; Add the backend to the major-mode specific backend list
-  (defun python/init-company-anaconda ()
-    (use-package company-anaconda
-      :if (configuration-layer/package-usedp 'company)
-      :defer t
-      :init (push 'company-anaconda company-backends-python-mode))))
+        '("~/.spacemacs.d/layers/private/snippets")))
 
 ;;; packages.el ends here
