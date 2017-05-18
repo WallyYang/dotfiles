@@ -99,7 +99,7 @@
 
 (defun wally/post-init-fill-column-indicator ()
   (require 'fill-column-indicator)
-  (setq fci-rule-column 90)
+  (setq fci-rule-column 80)
   (add-hook 'prog-mode-hook 'fci-mode)
   )
 
