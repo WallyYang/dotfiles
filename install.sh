@@ -7,6 +7,7 @@ ln -s ~/dotfiles/.spacemacs.d ~/
 ln -s ~/dotfiles/.eclimrc ~/
 ln -s ~/dotfiles/.ycm_extra_conf.py ~/
 ln -s ~/dotfiles/.i3 ~/
+ln -s ~/dotfiles/.gitconfig ~/
 
 # create temporary trash can
 sudo mkdir /delete
