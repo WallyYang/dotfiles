@@ -91,9 +91,3 @@ alias yn="sudo systemctl start NetworkManager.service"    # start network manage
 
 # thefuck config
 eval "$(thefuck --alias)"
-
-# deleting
-
-
-source ~/.xsh
-
