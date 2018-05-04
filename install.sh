@@ -17,8 +17,8 @@ do
         echo "Back up ${file}"
         mv ~/${file} "${PWD}/backup"
 
-        ln -s ${PWD}/${file} ~/${file}
     fi
+    ln -s ${PWD}/${file} ~/${file}
 done
 
 echo "Creating trash can"
