@@ -30,5 +30,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 # build oh-my-zsh
 git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-rm ~/.zshrc
-ln -s ~/dotfiles/.zshrc ~/
+
+sed -i "s/^plugins=(/plugins=(archlinux extract thefuck zsh-autosuggestions/" ~/.zshrc
+
+echo "alias dn=\"sudo systemctl disable NetworkManager.service\" # disable network manager" >> ~/.zshrc
+echo "alias nn=\"sudo systemctl stop NetworkManager.service\"    # stop network manager" >> ~/.zshrc
+echo "alias en=\"sudo systemctl enable NetworkManager.service\"  # enable network manager" >> ~/.zshrc
+echo "alias yn=\"sudo systemctl start NetworkManager.service\"    # start network manager" >> ~/.zshrc
+echo "" >> ~/.zshrc
+echo "# thefuck config" >> ~/.zshrc
+echo "eval \"(thefuck --alias)\"" >> ~/.zshrc
