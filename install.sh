@@ -1,17 +1,34 @@
 #!/bin/bash
 
-# create dotfiles config
-ln -s ~/dotfiles/.bashrc ~/
-ln -s ~/dotfiles/.vimrc ~/
-ln -s ~/dotfiles/.spacemacs.d ~/
-ln -s ~/dotfiles/.eclimrc ~/
-ln -s ~/dotfiles/.ycm_extra_conf.py ~/
-ln -s ~/dotfiles/.i3 ~/
-ln -s ~/dotfiles/.gitconfig ~/
+echo "Back up existing config"
 
-# create temporary trash can
+if [ -e ${PWD}/backup ]
+then
+    rm -r ${PWD}/backup
+fi
+mkdir ~/dotfiles/backup
+
+files=(.bashrc .vimrc .spacemacs.d .eclimrc .ycm_extra_conf.py .gitconfig)
+
+for file in "${files[@]}"
+do
+    if [ -e ~/${file} ]
+    then
+        echo "Back up ${file}"
+        mv ~/${file} "${PWD}/backup"
+
+        ln -s ${PWD}/${file} ~/${file}
+    fi
+done
+
+echo "Creating trash can"
 sudo mkdir /delete
 sudo chmod 777 /delete
 
+echo "Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+# build oh-my-zsh
+git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+rm ~/.zshrc
+ln -s ~/dotfiles/.zshrc ~/
