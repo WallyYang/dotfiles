@@ -8,7 +8,7 @@ then
 fi
 mkdir ~/dotfiles/backup
 
-files=(.bashrc .vimrc .spacemacs.d .eclimrc .ycm_extra_conf.py .gitconfig)
+files=(.vimrc .spacemacs.d .eclimrc .ycm_extra_conf.py .gitconfig)
 
 for file in "${files[@]}"
 do
@@ -20,6 +20,8 @@ do
     fi
     ln -s ${PWD}/${file} ~/${file}
 done
+
+echo "alias ll='ls -al" >> ~/.bashrc
 
 echo "Creating trash can"
 sudo mkdir /delete
