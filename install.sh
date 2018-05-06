@@ -21,7 +21,7 @@ do
     ln -s ${PWD}/${file} ~/${file}
 done
 
-echo "alias ll='ls -al" >> ~/.bashrc
+echo "alias l='ls -al" >> ~/.bashrc
 
 echo "Creating trash can"
 sudo mkdir /delete
