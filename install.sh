@@ -31,7 +31,7 @@ echo "Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # build oh-my-zsh
-git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins
+git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 sed -i "s/^plugins=(/plugins=(archlinux extract thefuck zsh-autosuggestions/" ~/.zshrc
 
