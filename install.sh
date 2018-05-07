@@ -41,4 +41,4 @@ echo "alias en=\"sudo systemctl enable NetworkManager.service\"  # enable networ
 echo "alias yn=\"sudo systemctl start NetworkManager.service\"    # start network manager" >> ~/.zshrc
 echo "" >> ~/.zshrc
 echo "# thefuck config" >> ~/.zshrc
-echo "eval \"(thefuck --alias)\"" >> ~/.zshrc
+echo "eval \$(thefuck --alias)" >> ~/.zshrc
