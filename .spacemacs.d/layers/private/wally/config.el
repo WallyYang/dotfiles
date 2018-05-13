@@ -22,3 +22,4 @@
   (c-set-style "linux"))
 
 (add-hook 'c-mode-hook 'my-c-mode-hook)
+

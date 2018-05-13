@@ -38,6 +38,7 @@
         fill-column-indicator
         ivy
         swiper
+        visual-fill-column
         yasnippet))
 
 ;; (defconst wally-packages
@@ -101,6 +102,7 @@
   (require 'fill-column-indicator)
   (setq fci-rule-column 80)
   (add-hook 'prog-mode-hook 'fci-mode)
+  (add-hook 'org-mode-hook 'fci-mode)
   )
 
 (defun wally/init-ivy ()
@@ -115,6 +117,10 @@
 (defun wally/init-swiper ()
   (global-set-key "\C-s" 'swiper)
   )
+
+(defun wally/init-visual-fill-column ()
+  (add-hook 'org-mode-hook 'visual-line-mode)
+  (add-hook 'visual-line-mode-hook #'visual-fill-column-mode))
 
 (defun wally/post-init-yasnippet ()
   (setq yas-snippet-dirs
