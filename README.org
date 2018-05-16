@@ -1,0 +1,8 @@
+* Dot Files Configurations
+** System Info:
+   - DE: GNOME
+   - WM: GNOME Shell
+   - WM Theme: Adapta-Nokto-Maia
+   - GTK Theme: Adapta-Nokto-Eta-Maia [GTK2/3]
+   - Icon Theme: Paprius-Adapta-Maia
+   - Font: Noto Sans 11
