@@ -17,9 +17,3 @@
             (setq flycheck-gcc-language-standard "c++11")
             (setq flycheck-cppcheck-standards "c++11")
             ))
-
-(defun my-c-mode-hook ()
-  (c-set-style "linux"))
-
-(add-hook 'c-mode-hook 'my-c-mode-hook)
-
