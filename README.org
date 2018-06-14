@@ -2,7 +2,25 @@
 ** System Info:
    - DE: GNOME
    - WM: GNOME Shell
-   - WM Theme: Adapta-Nokto-Maia
-   - GTK Theme: Adapta-Nokto-Eta-Maia [GTK2/3]
-   - Icon Theme: Paprius-Adapta-Maia
-   - Font: Noto Sans 11
+*** Themes
+    - Applications: Adapta-Nokto-Maia
+    - Cursor: Xcursor-breeze
+    - Icons: Papirus-Adapta-Maia
+    - Shell: Adapta-Nokto-Maia
+*** Dash to Dock
+    - Position and Size
+      - Panel mode
+      - Icon size limit: 32
+    - Appearance
+      - Shrink the dash
+      - Customize windows counter indicators: Dots
+        - Customize indicator style: white & white
+      - Customize the dash color: black
+      - Customize opacity: 0 - 100%
+*** Openweather
+*** Fonts
+    - Window Title: Cantarell Bold 11
+    - Interface: Noto Sans Regular 11
+    - Document: Sans Regular 11
+    - Monospace: Hack Regular 11
+    - Antialiasing: Subpixel
