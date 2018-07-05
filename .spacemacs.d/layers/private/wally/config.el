@@ -18,8 +18,3 @@
             (setq flycheck-cppcheck-standards "c++11")
             ))
 
-;; orphan packages
-(add-to-list 'load-path "~/.spacemacs.d/elfiles/")
-
-(load "power-mode")
-(add-hook 'c++-mode-hook 'power-shake-hook)
