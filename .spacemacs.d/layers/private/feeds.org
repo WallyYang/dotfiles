@@ -1,3 +1,6 @@
 * Blogs :elfeed:
 ** Personal Blogs :personal:
+*** http://wingolog.org/feed/atom
 *** http://www.ruanyifeng.com/feed.html
+*** https://www.liaoxuefeng.com/feed
+*** https://blog.laurence.tk/atom.xml

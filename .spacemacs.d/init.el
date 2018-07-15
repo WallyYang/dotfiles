@@ -346,6 +346,9 @@ you should place your code here."
         "~/opt/scalastyle_2.12-1.0.0.jar")
   (setq flycheck-scalastylerc
         "~/opt/scalastyle_config.xml")
+
+  (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
