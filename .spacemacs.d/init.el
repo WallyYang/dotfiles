@@ -55,7 +55,7 @@ values."
      html
      imenu-list
      java
-     javascript
+     (javascript :variables javascript-disable-tern-port-files nil)
      markdown
      org
      python
