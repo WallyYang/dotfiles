@@ -49,27 +49,34 @@ values."
      games
      github
      (go :variables go-use-gometalinter t)
+     gpu
      graphviz
      haskell
      helm
      html
      imenu-list
      java
-     (javascript :variables javascript-disable-tern-port-files nil)
+     ;; (javascript :variables javascript-backend 'flow-language-server)
+     javascript
+     lsp
      markdown
      org
      python
+     ;; react
      rust
      scala
      selectric
      semantic
      search-engine
-     shaders
+     ;; shaders
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
+     (typescript :variables
+                 typescript-fmt-on-save t
+                 typescript-fmt-tool 'tslint)
      (version-control :variables
                       version-control-diff-tool 'diff-hl)
      wally
@@ -84,7 +91,9 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(
+                                    tern
+                                    )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -158,8 +167,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("default"
-                               :size 13
+   dotspacemacs-default-font '("Hack"
+                               :size 18
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -327,8 +336,8 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq ycmd-server-command '("python" "/home/wally/opt/ycmd/ycmd"))
-  (add-to-list 'configuration-layer--elpa-archives
-               '("melpa-stabl" . "https://stable.melpa.org/packages/") t)
+  ;; (add-to-list 'configuration-layer--elpa-archives
+  ;;              '("melpa-stabl" . "https://stable.melpa.org/packages/") t)
   )
 
 (defun dotspacemacs/user-config ()
@@ -351,6 +360,10 @@ you should place your code here."
 
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+
+  (setq default-tab-width 4)
+
+  (remove-hook 'js2-mode-hook 'tern-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -360,12 +373,34 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(flycheck-javascript-flow-args (quote ("--respect-pragma")))
  '(package-selected-packages
    (quote
-    (glsl-mode graphviz-dot-mode ace-jump-mode elfeed-web elfeed-org elfeed-goodies elfeed engine-mode imenu-list magit-gh-pulls github-search github-clone magit magit-popup ghub github-browse-file git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-commit with-editor git-gutter gist gh marshal logito pcache ht emoji-cheat-sheet-plus diff-hl company-emoji selectric-mode typit mmt sudoku pacmacs 2048-game noflet ensime sbt-mode scala-mode org-mime visual-fill-column flycheck-gometalinter go-guru go-eldoc company-go go-mode intero hlint-refactor hindent helm-hoogle haskell-snippets flycheck-haskell company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode org-category-capture let-alist toml-mode racer flycheck-rust seq cargo rust-mode yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode company-emacs-eclim eclim wgrep smex ivy-hydra counsel-projectile counsel web-mode tagedit stickyfunc-enhance srefactor slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic disaster company-c-headers cmake-mode clang-format swiper ivy org-projectile org-present org-pomodoro alert log4e gntp org-download mmm-mode markdown-toc markdown-mode htmlize helm-company helm-c-yasnippet gnuplot gh-md fuzzy flycheck-ycmd flycheck-pos-tip pos-tip flycheck company-ycmd ycmd request-deferred deferred company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (treepy graphql flycheck-flow flow-minor-mode company-flow glsl-mode graphviz-dot-mode ace-jump-mode elfeed-web elfeed-org elfeed-goodies elfeed engine-mode imenu-list magit-gh-pulls github-search github-clone magit magit-popup ghub github-browse-file git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-commit with-editor git-gutter gist gh marshal logito pcache ht emoji-cheat-sheet-plus diff-hl company-emoji selectric-mode typit mmt sudoku pacmacs 2048-game noflet ensime sbt-mode scala-mode org-mime visual-fill-column flycheck-gometalinter go-guru go-eldoc company-go go-mode intero hlint-refactor hindent helm-hoogle haskell-snippets flycheck-haskell company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode org-category-capture let-alist toml-mode racer flycheck-rust seq cargo rust-mode yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode company-emacs-eclim eclim wgrep smex ivy-hydra counsel-projectile counsel web-mode tagedit stickyfunc-enhance srefactor slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic disaster company-c-headers cmake-mode clang-format swiper ivy org-projectile org-present org-pomodoro alert log4e gntp org-download mmm-mode markdown-toc markdown-mode htmlize helm-company helm-c-yasnippet gnuplot gh-md fuzzy flycheck-ycmd flycheck-pos-tip pos-tip flycheck company-ycmd ycmd request-deferred deferred company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(flycheck-javascript-flow-args (quote ("--respect-pragma")))
+ '(package-selected-packages
+   (quote
+    (company-glsl treepy graphql flycheck-flow flow-minor-mode company-flow glsl-mode graphviz-dot-mode ace-jump-mode elfeed-web elfeed-org elfeed-goodies elfeed engine-mode imenu-list magit-gh-pulls github-search github-clone magit magit-popup ghub github-browse-file git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-commit with-editor git-gutter gist gh marshal logito pcache ht emoji-cheat-sheet-plus diff-hl company-emoji selectric-mode typit mmt sudoku pacmacs 2048-game noflet ensime sbt-mode scala-mode org-mime visual-fill-column flycheck-gometalinter go-guru go-eldoc company-go go-mode intero hlint-refactor hindent helm-hoogle haskell-snippets flycheck-haskell company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode org-category-capture let-alist toml-mode racer flycheck-rust seq cargo rust-mode yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode company-emacs-eclim eclim wgrep smex ivy-hydra counsel-projectile counsel web-mode tagedit stickyfunc-enhance srefactor slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic disaster company-c-headers cmake-mode clang-format swiper ivy org-projectile org-present org-pomodoro alert log4e gntp org-download mmm-mode markdown-toc markdown-mode htmlize helm-company helm-c-yasnippet gnuplot gh-md fuzzy flycheck-ycmd flycheck-pos-tip pos-tip flycheck company-ycmd ycmd request-deferred deferred company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)
