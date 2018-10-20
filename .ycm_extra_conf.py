@@ -34,7 +34,6 @@ import os
 import ycm_core
 
 flags = [
-    '-x',
     'c++',
     '-Wall',
     '-Wextra',
