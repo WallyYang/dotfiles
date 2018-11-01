@@ -76,7 +76,7 @@ values."
      syntax-checking
      (typescript :variables
                  typescript-fmt-on-save t
-                 typescript-fmt-tool 'tslint)
+                 typescript-fmt-tool 'typescript-formatter)
      (version-control :variables
                       version-control-diff-tool 'diff-hl)
      wally
