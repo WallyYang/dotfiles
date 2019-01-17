@@ -34,12 +34,14 @@ import os
 import ycm_core
 
 flags = [
-    'c++',
-    '-Wall',
-    '-Wextra',
-    '-Wno-deprecated-declarations',
-    '-Wno-reorder',
-    '-std=c++11',
+  'c++',
+  '-Wall',
+  '-Wextra',
+  '-Wno-deprecated-declarations',
+  '-Wno-reorder',
+  '-std=c++11',
+
+  '-I', '/opt/cuda/include'
 ]
 
 
