@@ -36,7 +36,6 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     agda
      auto-completion
      ;; better-defaults
      (c-c++ :variables
@@ -66,12 +65,11 @@ values."
      lsp
      lua
      markdown
-     nlinum
+     ;; nlinum
      org
      python
      ;; react
-     (rust :variables
-           rust-backend "lsp")
+     rust
      scala
      scheme
      selectric
