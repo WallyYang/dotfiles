@@ -51,6 +51,7 @@ values."
      (go :variables go-use-gometalinter t)
      gpu
      graphviz
+     gtags
      haskell
      helm
      html
@@ -389,6 +390,9 @@ you should place your code here."
   (setq LaTeX-item-indent 0)
   (setq LaTeX-indent-level 4)
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+
+  ;; Smart Paren Fix
+  (setq sp-escape-quotes-after-insert nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
