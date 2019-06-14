@@ -1,44 +1,68 @@
-#!/bin/bash
+#!/usr/bin/env python3
 
-echo "Back up existing config"
+import os
+import shutil
+import subprocess
 
-if [ -e ${PWD}/backup ]
-then
-    rm -r ${PWD}/backup
-fi
-mkdir ~/dotfiles/backup
+config_files = [
+    ".vimrc",
+    ".spacemacs.d",
+    ".eclimrc",
+    ".ycm_extra_conf.py",
+    ".gitconfig"
+]
 
-files=(.vimrc .spacemacs.d .eclimrc .ycm_extra_conf.py .gitconfig)
+def deploy_config():
+    print("Backing up Existing Config")
 
-for file in "${files[@]}"
-do
-    if [ -e ~/${file} ]
-    then
-        echo "Back up ${file}"
-        mv ~/${file} "${PWD}/backup"
+    backup_path = os.path.expanduser("~/dotfiles/backup/")
+    try:
+        print("mkdir ~/dotfiles/backup/")
+        os.mkdir(backup_path)
+    except FileExistsError:
+        print
+        shutil.rmtree(backup_path)
+        os.mkdir(backup_path)
 
-    fi
-    ln -s ${PWD}/${file} ~/${file}
-done
+    # Copy file to backup directory
+    for config_file in config_files:
+        src_path = os.path.expanduser(f"~/{config_file}")
+        dst_path = os.path.expanduser(f"~/dotfiles/backup/{config_file}")
 
-echo "alias l=\"ls -al\"" >> ~/.bashrc
+        if os.path.exists(src_path):
+            print(f"mv {src_path} {dst_path}")
+            os.rename(src_path, dst_path)
 
-echo "Creating trash can"
-sudo mkdir /delete
-sudo chmod 777 /delete
+def symlink_config():
+    print("Create symlinks for Configs")
+    for config_file in config_files:
+        src_path = os.path.expanduser(f"~/dotfiles/{config_file}")
+        dst_path = os.path.expanduser(f"~/{config_file}")
 
-echo "Installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+        os.symlink(src_path, dst_path)
 
-# build oh-my-zsh
-git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+def setup_bash():
+    print("Seting up Bash")
 
-sed -i "s/^plugins=(/plugins=(archlinux extract thefuck zsh-autosuggestions/" ~/.zshrc
+    bash_path = os.path.expanduser("~/.bashrc")
+    with open(bash_path, 'a') as bash_rc:
+        bash_rc.write("\n\nalias l=\"ls -al\"")
 
-echo "alias dn=\"sudo systemctl disable NetworkManager.service\" # disable network manager" >> ~/.zshrc
-echo "alias nn=\"sudo systemctl stop NetworkManager.service\"    # stop network manager" >> ~/.zshrc
-echo "alias en=\"sudo systemctl enable NetworkManager.service\"  # enable network manager" >> ~/.zshrc
-echo "alias yn=\"sudo systemctl start NetworkManager.service\"    # start network manager" >> ~/.zshrc
-echo "" >> ~/.zshrc
-echo "# thefuck config" >> ~/.zshrc
-echo "eval \$(thefuck --alias)" >> ~/.zshrc
+def config_ohmyzsh():
+    print("Configuring Oh My Zsh")
+
+    #Install Oh My Zsh
+    ohmyzsh = """sh -c \
+    "$(curl -fsSL \
+https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    """
+    print(ohmyzsh)
+    os.system(ohmyzsh)
+
+    # Add Plugin zsh-autosuggestions
+
+if __name__ == '__main__':
+    deploy_config()
+    symlink_config()
+    setup_bash()
+    config_ohmyzsh()
