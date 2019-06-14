@@ -3,6 +3,7 @@
 	name = Wally Yang
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore_global
 [magithub]
 	online = false
 [magithub "status"]

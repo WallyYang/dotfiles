@@ -9,7 +9,8 @@ config_files = [
     ".spacemacs.d",
     ".eclimrc",
     ".ycm_extra_conf.py",
-    ".gitconfig"
+    ".gitconfig",
+    ".gitignore_global",
 ]
 
 def deploy_config():
@@ -48,6 +49,14 @@ def setup_bash():
     with open(bash_path, 'a') as bash_rc:
         bash_rc.write("\n\nalias l=\"ls -al\"")
 
+def setup_git():
+    # Setup global git ignore
+    subprocess.run(["git",
+                    "config",
+                    "--global",
+                    "core.excludesfile",
+                    "~/.gitignore_global"])
+
 def config_ohmyzsh():
     print("Configuring Oh My Zsh")
 
@@ -65,4 +74,5 @@ if __name__ == '__main__':
     deploy_config()
     symlink_config()
     setup_bash()
+    setup_git()
     config_ohmyzsh()
