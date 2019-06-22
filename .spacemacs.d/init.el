@@ -47,6 +47,7 @@ values."
      emoji
      ;; git
      games
+     git
      github
      (go :variables go-use-gometalinter t)
      gpu
