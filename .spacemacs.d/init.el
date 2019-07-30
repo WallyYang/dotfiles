@@ -71,7 +71,8 @@ values."
      org
      python
      ;; react
-     rust
+     (rust :variables
+           rust-format-on-save t)
      scala
      scheme
      selectric

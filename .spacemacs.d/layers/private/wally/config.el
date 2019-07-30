@@ -18,3 +18,9 @@
             (setq flycheck-cppcheck-standards "c++11")
             ))
 
+;; Rust mode settings
+(defun rust-config ()
+  (setq fci-rule-column 110)
+  )
+
+(add-hook 'rust-mode-hook 'rust-config)
