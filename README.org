@@ -1,5 +1,14 @@
 * Dot Files Configurations
-** System Info:
+** File Info
+   - ~install.sh~: Python script to deploy all the config files
+   - ~.eclimrc~: Eclim Completion config for Java
+   - ~.gitconfig~: Global gitconfig
+   - ~.gitignore_global~: Global git ignore config
+   - ~.tmux.conf~: Tmux config, tested on tmux 3.0a
+   - ~.vimrc~: Minimal vim config for sysadmin work
+   - ~.ycm_extra_conf~: Global YCMD config, used mainly for standalone C/C++ files
+   - ~.spacemacs.d~: Emacs config with Spacemacs, tested on Spacemacs 0.200
+** System Info
    - DE: GNOME
    - WM: GNOME Shell
 *** Themes
