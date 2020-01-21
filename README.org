@@ -12,10 +12,10 @@
    - DE: GNOME
    - WM: GNOME Shell
 *** Themes
-    - Applications: Adapta-Nokto-Maia
+    - Applications: Flat-Remix-GTK-Green-Dark
     - Cursor: Xcursor-breeze
-    - Icons: Papirus-Adapta-Maia
-    - Shell: Adapta-Nokto-Maia
+    - Icons: Flat-Remix-Green-Dark
+    - Shell: Flat-Remix-Dark
 *** Dash to Dock
     - Position and Size
       - Panel mode
@@ -25,11 +25,12 @@
       - Customize windows counter indicators: Dots
         - Customize indicator style: white & white
       - Customize the dash color: black
-      - Customize opacity: 0 - 100%
+      - Customize opacity: 50% Fixed
 *** Openweather
 *** Fonts
-    - Window Title: Cantarell Bold 11
+    - Legacy Window Title: Cantarell Bold 11
     - Interface: Noto Sans Regular 11
-    - Document: Sans Regular 11
+    - Document: Sans Pro Regular 11
     - Monospace: Hack Regular 11
     - Antialiasing: Subpixel
+    - Scaling Factor: 1.10
