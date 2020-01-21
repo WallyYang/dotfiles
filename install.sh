@@ -11,6 +11,7 @@ config_files = [
     ".ycm_extra_conf.py",
     ".gitconfig",
     ".gitignore_global",
+    ".tmux.conf",
 ]
 
 def deploy_config():
