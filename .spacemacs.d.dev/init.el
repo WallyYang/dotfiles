@@ -40,14 +40,18 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      auto-completion
      ;; better-defaults
+     c-c++
      emacs-lisp
      ;; git
      helm
      imenu-list
-     ;; lsp
-     ;; markdown
+     latex
+     lsp
+     markdown
      multiple-cursors
-     ;; org
+     org
+     (rust :variables
+           rust-format-on-save t)
      semantic
      ;; (shell :variables
      ;;        shell-default-height 30
