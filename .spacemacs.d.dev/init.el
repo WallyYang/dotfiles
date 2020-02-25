@@ -43,6 +43,7 @@ This function should only modify configuration layer settings."
      c-c++
      emacs-lisp
      ;; git
+     graphviz
      helm
      imenu-list
      latex
