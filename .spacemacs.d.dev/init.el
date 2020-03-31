@@ -483,6 +483,10 @@ before packages are loaded."
   ;; default-tab set for modes like Python
   (setq default-tab-width 4)
 
+  ;; glyph code font
+  (set-face-font 'fixed-pitch "-SRC-Hack-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1")
+  ;; (add-to-list 'face-ignored-fonts "Inconsolata")
+
   ;; Evil Config
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
