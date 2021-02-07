@@ -52,6 +52,8 @@ This function should only modify configuration layer settings."
      markdown
      multiple-cursors
      org
+     python
+     ruby
      (rust :variables
            rust-format-on-save t)
      semantic
