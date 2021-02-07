@@ -1,6 +1,0 @@
-# name: for-range
-# key: each
-# --
-for ($1 : $2) {
-    $0
-}

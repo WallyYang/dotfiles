@@ -1,6 +1,0 @@
-# name: log
-# key: log
-# --
-#ifndef NDEBUG
-$0
-#endif

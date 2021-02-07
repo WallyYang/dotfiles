@@ -1,7 +1,0 @@
-# name: function
-# key: func
-# --
-${1:return_type} ${2:function}(${3:parameters})
-{
-    $0
-}

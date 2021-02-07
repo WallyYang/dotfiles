@@ -1,7 +1,0 @@
-# name: main
-# key: main
-# --
-int main()
-{
-    $0
-}

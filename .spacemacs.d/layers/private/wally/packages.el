@@ -28,15 +28,10 @@
 ;;   `wally/post-init-PACKAGE' to customize the package as it is loaded.
 
 ;;; Code:
-(setq-default cursor-type 'bar)
-
-(delete-selection-mode 1)
-
 (setq wally-packages
       '(
         company
         fill-column-indicator
-        ivy
         swiper
         visual-fill-column
         yasnippet))
@@ -102,16 +97,6 @@
   (require 'fill-column-indicator)
   (setq fci-rule-column 80)
   (add-hook 'prog-mode-hook 'fci-mode)
-  (add-hook 'org-mode-hook 'fci-mode)
-  )
-
-(defun wally/init-ivy ()
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (global-set-key (kbd "<f6>") 'ivy-resume)
-  (global-set-key (kbd "C-c C-r") 'ivy-resume)
-  (bind-key* "C-x C-f" 'ido-find-file)
-  (bind-key* "C-x b" 'ivy-switch-buffer)
   )
 
 (defun wally/init-swiper ()
