@@ -7,7 +7,6 @@ import subprocess
 config_files = [
     ".vimrc",
     ".spacemacs.d",
-    ".eclimrc",
     ".ycm_extra_conf.py",
     ".gitconfig",
     ".gitignore_global",
