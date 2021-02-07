@@ -14,6 +14,7 @@ config_files = [
     ".tmux.conf",
 ]
 
+
 def deploy_config():
     print("Backing up Existing Config")
 
@@ -35,6 +36,7 @@ def deploy_config():
             print(f"mv {src_path} {dst_path}")
             os.rename(src_path, dst_path)
 
+
 def symlink_config():
     print("Create symlinks for Configs")
     for config_file in config_files:
@@ -43,12 +45,14 @@ def symlink_config():
 
         os.symlink(src_path, dst_path)
 
+
 def setup_bash():
     print("Seting up Bash")
 
     bash_path = os.path.expanduser("~/.bashrc")
     with open(bash_path, 'a') as bash_rc:
         bash_rc.write("\n\nalias l=\"ls -al\"")
+
 
 def setup_git():
     # Setup global git ignore
@@ -58,10 +62,11 @@ def setup_git():
                     "core.excludesfile",
                     "~/.gitignore_global"])
 
+
 def config_ohmyzsh():
     print("Configuring Oh My Zsh")
 
-    #Install Oh My Zsh
+    # Install Oh My Zsh
     ohmyzsh = """sh -c \
     "$(curl -fsSL \
 https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -70,6 +75,7 @@ https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
     os.system(ohmyzsh)
 
     # Add Plugin zsh-autosuggestions
+
 
 if __name__ == '__main__':
     deploy_config()
