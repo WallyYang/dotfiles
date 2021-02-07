@@ -1,2 +1,3 @@
 backup
 .spacemacs.d/.spacemacs.env
+.spacemacs.d.dev/.spacemacs.env
