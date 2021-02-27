@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import errno
 import os
 import shutil
 import subprocess
@@ -42,7 +43,14 @@ def symlink_config():
         src_path = os.path.expanduser(f"~/dotfiles/{config_file}")
         dst_path = os.path.expanduser(f"~/{config_file}")
 
-        os.symlink(src_path, dst_path)
+        try:
+            os.symlink(src_path, dst_path)
+        except OSError as e:
+            if e.errno == errno.EEXIST:
+                os.remove(dst_path)
+                os.symlink(src_path, dst_path)
+            else:
+                raise e
 
 
 def setup_bash():
