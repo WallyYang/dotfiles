@@ -5,7 +5,8 @@ import os
 import shutil
 import subprocess
 
-config_files = [
+# dot files under ~/
+dot_home = [
     ".vimrc",
     ".spacemacs.d",
     ".ycm_extra_conf.py",
@@ -15,7 +16,7 @@ config_files = [
 ]
 
 
-def deploy_config():
+def backup_config():
     print("Backing up Existing Config")
 
     backup_path = os.path.expanduser("~/dotfiles/backup/")
@@ -28,7 +29,7 @@ def deploy_config():
         os.mkdir(backup_path)
 
     # Copy file to backup directory
-    for config_file in config_files:
+    for config_file in dot_home:
         src_path = os.path.expanduser(f"~/{config_file}")
         dst_path = os.path.expanduser(f"~/dotfiles/backup/{config_file}")
 
@@ -39,7 +40,7 @@ def deploy_config():
 
 def symlink_config():
     print("Create symlinks for Configs")
-    for config_file in config_files:
+    for config_file in dot_home:
         src_path = os.path.expanduser(f"~/dotfiles/{config_file}")
         dst_path = os.path.expanduser(f"~/{config_file}")
 
@@ -85,7 +86,7 @@ https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
 
 
 if __name__ == '__main__':
-    deploy_config()
+    backup_config()
     symlink_config()
     setup_bash()
     setup_git()
