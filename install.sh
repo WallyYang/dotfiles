@@ -71,23 +71,8 @@ def setup_git():
                     "~/.gitignore_global"])
 
 
-def config_ohmyzsh():
-    print("Configuring Oh My Zsh")
-
-    # Install Oh My Zsh
-    ohmyzsh = """sh -c \
-    "$(curl -fsSL \
-https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    """
-    print(ohmyzsh)
-    os.system(ohmyzsh)
-
-    # Add Plugin zsh-autosuggestions
-
-
 if __name__ == '__main__':
     backup_config()
     symlink_config()
     setup_bash()
     setup_git()
-    config_ohmyzsh()

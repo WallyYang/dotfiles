@@ -8,6 +8,8 @@
    - ~.vimrc~: Minimal vim config for sysadmin work
    - ~.ycm_extra_conf~: Global YCMD config, used mainly for standalone C/C++ files
    - ~.spacemacs.d~: Emacs config with Spacemacs, tested on Spacemacs 0.200
+** Prerequisite
+   - [[https://ohmyz.sh/#install][Oh My Zsh]]
 ** System Info
    - DE: GNOME
    - WM: GNOME Shell
