@@ -43,6 +43,11 @@ This function should only modify configuration layer settings."
      c-c++
      emacs-lisp
      ;; git
+     (go :variables
+         go-backend 'lsp
+         go-tab-width 4
+         go-format-before-save t
+      )
      gpu
      graphviz
      helm
