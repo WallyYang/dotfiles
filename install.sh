@@ -15,6 +15,11 @@ dot_home = [
     ".tmux.conf",
 ]
 
+# configs under ~/.config
+dot_configs = [
+    "kitty"
+]
+
 
 def backup_config():
     print("Backing up Existing Config")
@@ -29,7 +34,7 @@ def backup_config():
         os.mkdir(backup_path)
 
     # Copy file to backup directory
-    for config_file in dot_home:
+    for config_file in dot_home + dot_configs:
         src_path = os.path.expanduser(f"~/{config_file}")
         dst_path = os.path.expanduser(f"~/dotfiles/backup/{config_file}")
 
@@ -39,19 +44,31 @@ def backup_config():
 
 
 def symlink_config():
-    print("Create symlinks for Configs")
+    print("Create symlinks for dot home configs")
     for config_file in dot_home:
         src_path = os.path.expanduser(f"~/dotfiles/{config_file}")
         dst_path = os.path.expanduser(f"~/{config_file}")
+        _symlink(src_path, dst_path)
 
-        try:
-            os.symlink(src_path, dst_path)
-        except OSError as e:
-            if e.errno == errno.EEXIST:
-                os.remove(dst_path)
-                os.symlink(src_path, dst_path)
-            else:
-                raise e
+    print("Create symlinks for dot configs (~/.config)")
+    dot_config_path = os.path.expanduser("~/.config")
+    if not os.path.exists(dot_config_path):
+        os.mkdir(dot_config_path)
+    for dot_config in dot_configs:
+        src_path = os.path.expanduser(f"~/dotfiles/{dot_config}")
+        dst_path = os.path.expanduser(f"{dot_config_path}/{dot_config}")
+        _symlink(src_path, dst_path)
+
+
+def _symlink(src: str, dst: str):
+    try:
+        os.symlink(src, dst)
+    except OSError as e:
+        if e.errno == errno.EEXIST:
+            os.remove(dst)
+            os.symlink(src, dst)
+        else:
+            raise e
 
 
 def setup_bash():
