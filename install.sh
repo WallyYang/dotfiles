@@ -9,7 +9,6 @@ import subprocess
 dot_home = [
     ".vimrc",
     ".spacemacs.d",
-    ".ycm_extra_conf.py",
     ".gitconfig",
     ".gitignore_global",
     ".tmux.conf",
