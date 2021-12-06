@@ -107,8 +107,4 @@
   (add-hook 'org-mode-hook 'visual-line-mode)
   (add-hook 'visual-line-mode-hook #'visual-fill-column-mode))
 
-(defun wally/post-init-yasnippet ()
-  (setq yas-snippet-dirs
-        '("~/.spacemacs.d/layers/private/snippets")))
-
 ;;; packages.el ends here
