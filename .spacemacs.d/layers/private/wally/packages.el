@@ -107,4 +107,8 @@
   (add-hook 'org-mode-hook 'visual-line-mode)
   (add-hook 'visual-line-mode-hook #'visual-fill-column-mode))
 
+(defun wally/post-init-yasnippet ()
+  (define-key yas-minor-mode-map (kbd "<tab>") nil)
+  (define-key yas-minor-mode-map (kbd "TAB") nil))
+
 ;;; packages.el ends here
