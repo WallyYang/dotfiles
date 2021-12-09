@@ -108,7 +108,7 @@
   (add-hook 'visual-line-mode-hook #'visual-fill-column-mode))
 
 (defun wally/post-init-yasnippet ()
-  (define-key yas-minor-mode-map (kbd "<tab>") nil)
-  (define-key yas-minor-mode-map (kbd "TAB") nil))
+  (define-key yas-keymap (kbd "TAB") 'yas-next-field)
+  (define-key yas-keymap [(tab)] 'yas-next-field))
 
 ;;; packages.el ends here
