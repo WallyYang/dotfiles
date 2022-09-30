@@ -108,7 +108,7 @@
   (add-hook 'visual-line-mode-hook #'visual-fill-column-mode))
 
 (defun wally/post-init-yasnippet ()
-  (define-key yas-keymap (kbd "TAB") 'yas-next-field)
-  (define-key yas-keymap [(tab)] 'yas-next-field))
+  (setq yas/triggers-in-field nil)
+  (setq yas-triggers-in-field nil))
 
 ;;; packages.el ends here
