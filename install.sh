@@ -12,12 +12,11 @@ dot_home = [
     ".gitconfig",
     ".gitignore_global",
     ".tmux.conf",
+    ".wezterm.lua",
 ]
 
 # configs under ~/.config
-dot_configs = [
-    "kitty"
-]
+dot_configs = []
 
 
 def backup_config():
