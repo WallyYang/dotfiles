@@ -34,7 +34,8 @@
         fill-column-indicator
         swiper
         visual-fill-column
-        yasnippet))
+        yasnippet
+        undo-tree))
 
 ;; (defconst wally-packages
 ;;   '(
@@ -110,5 +111,8 @@
 (defun wally/post-init-yasnippet ()
   (setq yas/triggers-in-field nil)
   (setq yas-triggers-in-field nil))
+
+(defun wally/post-init-undo-tree ()
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.undo.d"))))
 
 ;;; packages.el ends here

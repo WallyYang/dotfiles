@@ -42,6 +42,7 @@ This function should only modify configuration layer settings."
                       auto-completion-tab-key-behavior 'cycle)
      ;; better-defaults
      c-c++
+     (docker :variables docker-dockerfile-backend 'lsp)
      emacs-lisp
      ;; git
      (go :variables
@@ -73,7 +74,8 @@ This function should only modify configuration layer settings."
      treemacs
      ;; version-control
      treemacs
-     wally)
+     wally
+     yaml)
 
 
    ;; List of additional packages that will be installed without being wrapped
