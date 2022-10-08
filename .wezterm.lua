@@ -15,4 +15,6 @@ end
 return {
     keys = mykeys,
     window_background_opacity = 0.6,
+    color_scheme = "Aco (Gogh)",
+    use_ime = false,
 }
