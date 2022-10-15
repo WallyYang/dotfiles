@@ -13,6 +13,13 @@ for i = 1, 8 do
 end
 
 return {
+    hyperlink_rules = {
+        -- xxx://xxx
+        {
+            regex = '\\b\\w+://[\\w.-]+\\S*\\b',
+            format = '$0',
+        },
+    },
     keys = mykeys,
     window_background_opacity = 0.7,
     color_scheme = "Epiphany (terminal.sexy)",
