@@ -22,6 +22,6 @@ return {
     },
     keys = mykeys,
     window_background_opacity = 0.7,
-    color_scheme = "Epiphany (terminal.sexy)",
+    color_scheme = "Nocturnal Winter",
     use_ime = false,
 }
