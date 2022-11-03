@@ -20,8 +20,11 @@ return {
             format = '$0',
         },
     },
+    font = wezterm.font 'Hack',
     keys = mykeys,
     window_background_opacity = 0.7,
     color_scheme = "Nocturnal Winter",
     use_ime = false,
+    initial_cols = 130,
+    initial_rows = 45,
 }
