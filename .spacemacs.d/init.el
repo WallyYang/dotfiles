@@ -78,7 +78,9 @@ This function should only modify configuration layer settings."
      ;; spell-checking
      syntax-checking
      treemacs
-     ;; version-control
+     (version-control :variables
+                      version-control-diff-side 'left
+                      version-control-global-margin t)
      treemacs
      wally
      yaml)
@@ -398,12 +400,12 @@ It should only modify the values of Spacemacs settings."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-active-transparency 75
+   dotspacemacs-active-transparency 85
 
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 50
+   dotspacemacs-inactive-transparency 85
 
    ;; A value from the range (0..100), in increasing opacity, which describes the
    ;; transparency level of a frame background when it's active or selected. Transparency
