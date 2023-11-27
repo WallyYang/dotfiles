@@ -10,3 +10,5 @@
 	includeStatusHeader = false
 	includePullRequestsSection = false
 	includeIssuesSection = false
+[commit]
+	gpgsign = true
