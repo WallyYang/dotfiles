@@ -44,7 +44,7 @@ This function should only modify configuration layer settings."
      c-c++
      (docker :variables docker-dockerfile-backend 'lsp)
      emacs-lisp
-     ;; git
+     git
      (go :variables
          go-backend 'lsp
          go-tab-width 4
