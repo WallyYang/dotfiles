@@ -39,7 +39,4 @@ syntax on
 
 " Keymap {{{
 "
-
-" Eclim {{{
-filetype plugin indent on
-" }}}
+"
