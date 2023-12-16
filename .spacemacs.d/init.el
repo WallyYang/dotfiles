@@ -56,7 +56,8 @@ This function should only modify configuration layer settings."
      html
      imenu-list
      latex
-     lsp
+     (lsp :variables
+          lsp-enable-indentation nil)
      markdown
      multiple-cursors
      org
