@@ -615,7 +615,7 @@ before packages are loaded."
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
   ;; C/C++ config
-  (setq c-default-style "linux")
+  (setq c-default-style "k&r")
   (setq c-basic-offset 4)
   (c-set-offset 'inline-open '0)
 
