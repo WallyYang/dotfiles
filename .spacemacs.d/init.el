@@ -42,6 +42,9 @@ This function should only modify configuration layer settings."
                       auto-completion-tab-key-behavior 'cycle)
      ;; better-defaults
      c-c++
+     (cmake :variables
+            cmake-backend 'lsp
+            cmake-enable-cmake-ide-support t)
      (docker :variables docker-dockerfile-backend 'lsp)
      emacs-lisp
      git
