@@ -12,3 +12,4 @@
 	includeIssuesSection = false
 [commit]
 	gpgsign = true
+    template = ~/.gitmessage

@@ -11,6 +11,7 @@ dot_home = [
     ".spacemacs.d",
     ".gitconfig",
     ".gitignore_global",
+    ".gitmessage",
     ".tmux.conf",
     ".wezterm.lua",
 ]
