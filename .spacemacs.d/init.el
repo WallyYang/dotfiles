@@ -72,7 +72,7 @@ This function should only modify configuration layer settings."
              python-sort-imports-on-save t)
      ruby
      (rust :variables
-           rust-format-on-save t)
+           rustic-format-on-save t)
      semantic
      (sql :variables
           sql-capitalize-keywords t)
