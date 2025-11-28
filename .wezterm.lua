@@ -21,6 +21,7 @@ return {
         },
     },
     font = wezterm.font 'Hack',
+    font_size = 14.0,
     keys = mykeys,
     window_background_opacity = 0.7,
     color_scheme = "Nocturnal Winter",
