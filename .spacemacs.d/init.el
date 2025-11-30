@@ -92,7 +92,6 @@ This function should only modify configuration layer settings."
      (version-control :variables
                       version-control-diff-side 'left
                       version-control-global-margin t)
-     treemacs
      wally
      web-beautify
      yaml)
