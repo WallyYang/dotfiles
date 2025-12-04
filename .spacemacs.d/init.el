@@ -59,6 +59,7 @@ This function should only modify configuration layer settings."
      imenu-list
      ivy
      (javascript :variables
+                 js-indent-level 2
                  js2-mode-show-strict-warnings nil
                  js2-mode-show-parse-errors nil
                  javascript-backend 'lsp
