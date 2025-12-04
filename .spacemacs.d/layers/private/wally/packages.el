@@ -31,8 +31,10 @@
 (setq wally-packages
       '(
         company
+        counsel
         fill-column-indicator
-        swiper
+        ivy
+        swiper-helm
         visual-fill-column
         yasnippet
         undo-tree))
@@ -100,8 +102,12 @@
   (add-hook 'prog-mode-hook 'fci-mode)
   )
 
-(defun wally/init-swiper ()
-  (global-set-key "\C-s" 'swiper)
+(defun wally/init-counsel ())
+
+(defun wally/init-ivy ())
+
+(defun wally/init-swiper-helm ()
+  (global-set-key "\C-s" 'swiper-helm)
   )
 
 (defun wally/init-visual-fill-column ()
