@@ -418,12 +418,12 @@ It should only modify the values of Spacemacs settings."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-active-transparency 85
+   dotspacemacs-active-transparency 90
 
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 85
+   dotspacemacs-inactive-transparency 95
 
    ;; A value from the range (0..100), in increasing opacity, which describes the
    ;; transparency level of a frame background when it's active or selected. Transparency
@@ -616,10 +616,9 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-
   ;; transparency
-  (add-hook 'after-make-frame-functions 'spacemacs/toggle-transparency)
-  ;; (spacemacs/toggle-transparency)
+  (spacemacs/toggle-transparency)
+  (add-hook 'after-make-frame-functions 'spacemacs/toggle-transparency) ;; for emacsclient
 
   ;; default-tab set for modes like Python
   (setq default-tab-width 4)
