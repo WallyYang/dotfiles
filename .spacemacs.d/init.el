@@ -55,9 +55,9 @@ This function should only modify configuration layer settings."
          )
      gpu
      graphviz
-     helm
      html
      imenu-list
+     ivy
      (javascript :variables
                  js2-mode-show-strict-warnings nil
                  js2-mode-show-parse-errors nil
