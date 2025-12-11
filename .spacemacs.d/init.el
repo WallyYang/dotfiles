@@ -92,7 +92,8 @@ This function should only modify configuration layer settings."
      syntax-checking
      treemacs
      (typescript :variables
-                 typescript-fmt-on-save t)
+                 typescript-fmt-on-save t
+                 typescript-fmt-tool 'prettier)
      (version-control :variables
                       version-control-diff-side 'left
                       version-control-global-margin t)
@@ -636,6 +637,12 @@ before packages are loaded."
   (setq c-default-style "k&r")
   (setq c-basic-offset 4)
   (c-set-offset 'inline-open '0)
+
+  ;; JSX/TSX/HTML
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-attr-indent-offset 2)
+  (setq web-mode-attr-value-indent-offset 2)
 
   ;; Smart Paren Fix
   (setq sp-escape-quotes-after-insert nil))
