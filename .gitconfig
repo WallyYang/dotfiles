@@ -13,3 +13,5 @@
 [commit]
 	gpgsign = true
     template = ~/.gitmessage
+[init]
+	defaultBranch = main
