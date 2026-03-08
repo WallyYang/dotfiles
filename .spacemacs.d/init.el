@@ -644,6 +644,9 @@ before packages are loaded."
   (setq web-mode-attr-indent-offset 2)
   (setq web-mode-attr-value-indent-offset 2)
 
+  ;; Stop LSP from overriding type format
+  (setq lsp-enable-on-type-formatting nil)
+
   ;; Smart Paren Fix
   (setq sp-escape-quotes-after-insert nil))
 
