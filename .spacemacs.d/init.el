@@ -637,6 +637,8 @@ before packages are loaded."
   (setq c-default-style "k&r")
   (setq c-basic-offset 4)
   (c-set-offset 'inline-open '0)
+  (setq lsp-clients-clangd-args
+        '("--header-insertion=never"))
 
   ;; JSX/TSX/HTML
   (setq web-mode-markup-indent-offset 2)
