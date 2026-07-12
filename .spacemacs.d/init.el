@@ -650,7 +650,11 @@ before packages are loaded."
   (setq lsp-enable-on-type-formatting nil)
 
   ;; Smart Paren Fix
-  (setq sp-escape-quotes-after-insert nil))
+  (setq sp-escape-quotes-after-insert nil)
+
+  ;; Auctex file
+  (setq TeX-auto-local ".auctex")
+)
 
 
 ;; Do not write anything past this comment. This is where Emacs will

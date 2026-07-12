@@ -11,3 +11,8 @@
 
 # common project files
 **/.env
+
+**/.claude/settings.local.json
+
+# auctex - emacs
+**/.auctex
