@@ -620,8 +620,8 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; transparency
-  (spacemacs/toggle-transparency)
-  (add-hook 'after-make-frame-functions 'spacemacs/toggle-transparency) ;; for emacsclient
+  (spacemacs/toggle-background-transparency)
+  (add-hook 'after-make-frame-functions 'spacemacs/toggle-background-transparency) ;; for emacsclient
 
   ;; default-tab set for modes like Python
   (setq default-tab-width 4)
@@ -655,7 +655,7 @@ before packages are loaded."
 
   ;; Auctex file
   (setq TeX-auto-local ".auctex")
-)
+  )
 
 
 ;; Do not write anything past this comment. This is where Emacs will
