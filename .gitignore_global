@@ -14,5 +14,8 @@
 
 **/.claude/settings.local.json
 
+# emacs custom config
+**/.dir-locals.el
+
 # auctex - emacs
 **/.auctex
