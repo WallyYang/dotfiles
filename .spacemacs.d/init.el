@@ -41,10 +41,11 @@ This function should only modify configuration layer settings."
      (auto-completion :variables
                       auto-completion-tab-key-behavior 'cycle)
      ;; better-defaults
-     c-c++
+     (c-c++ :variables
+             c-c++-backend 'lsp-clangd
+             c-c++-enable-clang-format-on-save t)
      (cmake :variables
-            cmake-backend 'lsp
-            cmake-enable-cmake-ide-support t)
+            cmake-backend 'lsp)
      (docker :variables docker-dockerfile-backend 'lsp)
      emacs-lisp
      git
