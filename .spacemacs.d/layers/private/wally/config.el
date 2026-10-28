@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; replace region
 (delete-selection-mode 1)
 
